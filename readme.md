@@ -57,4 +57,4 @@ Once loaded into draw.io recommended to:
 
 example after converting from json and auto-layout in drawio
 
-![](.\example.drawio.png)
+![](./example.drawio.png)
