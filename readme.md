@@ -51,4 +51,10 @@ Once loaded into draw.io recommended to:
 - Arrange>Autosize
 - Arrange>Layout>[choice]
 
-  as boxes originally created overlapping
+  as boxes originally created overlappin
+
+## Example
+
+example after converting from json and auto-layout in drawio
+
+![](.\example.drawio.png)
