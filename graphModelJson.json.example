@@ -1,0 +1,1699 @@
+{
+    "created_at": "2024-03-23 14:41",
+    "cli_options": "-a --json -o myapp_models.json",
+    "disable_fields": false,
+    "disable_abstract_fields": false,
+    "use_subgraph": false,
+    "rankdir": "TB",
+    "graphs": [
+        {
+            "True": true,
+            "False": false,
+            "None": null,
+            "name": "\"wp3_basic\"",
+            "app_name": "wp3_basic",
+            "cluster_app_name": "cluster_wp3_basic",
+            "models": [
+                {
+                    "app_name": "wp3_basic_models",
+                    "name": "Session",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "session_id",
+                            "label": "session_id",
+                            "type": "PositiveIntegerField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "user",
+                            "label": "user",
+                            "type": "ForeignKey (id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "active",
+                            "label": "active",
+                            "type": "BooleanField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "end_time",
+                            "label": "end_time",
+                            "type": "DateTimeField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "src_ip",
+                            "label": "src_ip",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "start_time",
+                            "label": "start_time",
+                            "type": "DateTimeField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "django_contrib_auth_models",
+                            "target": "User",
+                            "type": "ForeignKey",
+                            "name": "user",
+                            "label": "user (session)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Session"
+                },
+                {
+                    "app_name": "wp3_basic_models",
+                    "name": "Location",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "BigAutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "session",
+                            "label": "session",
+                            "type": "ForeignKey (session_id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "area",
+                            "label": "area",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "location",
+                            "label": "location",
+                            "type": "PointField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "name",
+                            "label": "name",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "remarks",
+                            "label": "remarks",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "wp3_basic_models",
+                            "target": "Session",
+                            "type": "ForeignKey",
+                            "name": "session",
+                            "label": "session (location)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Location"
+                },
+                {
+                    "app_name": "wp3_basic_models",
+                    "name": "Module_Session",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "BigAutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "location",
+                            "label": "location",
+                            "type": "ForeignKey (id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "session",
+                            "label": "session",
+                            "type": "ForeignKey (session_id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "active",
+                            "label": "active",
+                            "type": "BooleanField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "end_time",
+                            "label": "end_time",
+                            "type": "DateTimeField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "module_name",
+                            "label": "module_name",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "pid",
+                            "label": "pid",
+                            "type": "PositiveIntegerField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "start_time",
+                            "label": "start_time",
+                            "type": "DateTimeField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "wp3_basic_models",
+                            "target": "Session",
+                            "type": "ForeignKey",
+                            "name": "session",
+                            "label": "session (module_session)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        },
+                        {
+                            "target_app": "wp3_basic_models",
+                            "target": "Location",
+                            "type": "ForeignKey",
+                            "name": "location",
+                            "label": "location (module_session)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Module_Session"
+                },
+                {
+                    "app_name": "wp3_basic_models",
+                    "name": "Wp3_Authentication_Token",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "BigAutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "session",
+                            "label": "session",
+                            "type": "OneToOneField (session_id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "issued_at",
+                            "label": "issued_at",
+                            "type": "DateTimeField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "token",
+                            "label": "token",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "wp3_basic_models",
+                            "target": "Session",
+                            "type": "OneToOneField",
+                            "name": "session",
+                            "label": "session (wp3_authentication_token)",
+                            "arrows": "[arrowhead=none, arrowtail=none, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Wp3_Authentication_Token"
+                },
+                {
+                    "app_name": "wp3_basic_models",
+                    "name": "User_Action",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "BigAutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "session",
+                            "label": "session",
+                            "type": "ForeignKey (session_id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "placeholder",
+                            "label": "placeholder",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "time_stamp",
+                            "label": "time_stamp",
+                            "type": "DateTimeField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "wp3_basic_models",
+                            "target": "Session",
+                            "type": "ForeignKey",
+                            "name": "session",
+                            "label": "session (user_action)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "User_Action"
+                }
+            ]
+        },
+        {
+            "True": true,
+            "False": false,
+            "None": null,
+            "name": "\"aircrack_ng_broker\"",
+            "app_name": "aircrack_ng_broker",
+            "cluster_app_name": "cluster_aircrack_ng_broker",
+            "models": [
+                {
+                    "app_name": "aircrack_ng_broker_models",
+                    "name": "Wifi_Scan",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "module_session_ptr",
+                            "label": "module_session_ptr",
+                            "type": "OneToOneField (id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "duration_s",
+                            "label": "duration_s",
+                            "type": "PositiveIntegerField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "interface",
+                            "label": "interface",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "wp3_basic_models",
+                            "target": "Module_Session",
+                            "type": "inheritance",
+                            "name": "inheritance",
+                            "label": "multi-table\\ninheritance",
+                            "arrows": "[arrowhead=empty, arrowtail=none, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Wifi_Scan"
+                },
+                {
+                    "app_name": "aircrack_ng_broker_models",
+                    "name": "Wifi_Scan_Beacon_Result",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "BigAutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "wifi_scan",
+                            "label": "wifi_scan",
+                            "type": "ForeignKey (id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "authentication",
+                            "label": "authentication",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "bssid",
+                            "label": "bssid",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "channel",
+                            "label": "channel",
+                            "type": "IntegerField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "cipher",
+                            "label": "cipher",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "essid",
+                            "label": "essid",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "first_time_seen",
+                            "label": "first_time_seen",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "id_len",
+                            "label": "id_len",
+                            "type": "IntegerField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "key",
+                            "label": "key",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "lan_ip",
+                            "label": "lan_ip",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "last_time_seen",
+                            "label": "last_time_seen",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "num_beacons",
+                            "label": "num_beacons",
+                            "type": "IntegerField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "num_iv",
+                            "label": "num_iv",
+                            "type": "IntegerField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "power",
+                            "label": "power",
+                            "type": "IntegerField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "privacy",
+                            "label": "privacy",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "speed",
+                            "label": "speed",
+                            "type": "IntegerField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "wp3_basic_models",
+                            "target": "Module_Session",
+                            "type": "ForeignKey",
+                            "name": "wifi_scan",
+                            "label": "wifi_scan (wifi_scan_beacon_result)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Wifi_Scan_Beacon_Result"
+                },
+                {
+                    "app_name": "aircrack_ng_broker_models",
+                    "name": "Wifi_Scan_Station_Result",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "BigAutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "wifi_scan",
+                            "label": "wifi_scan",
+                            "type": "ForeignKey (id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "bssid",
+                            "label": "bssid",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "first_time_seen",
+                            "label": "first_time_seen",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "last_time_seen",
+                            "label": "last_time_seen",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "num_packets",
+                            "label": "num_packets",
+                            "type": "IntegerField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "power",
+                            "label": "power",
+                            "type": "IntegerField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "probed_essids",
+                            "label": "probed_essids",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "station_mac",
+                            "label": "station_mac",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "wp3_basic_models",
+                            "target": "Module_Session",
+                            "type": "ForeignKey",
+                            "name": "wifi_scan",
+                            "label": "wifi_scan (wifi_scan_station_result)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Wifi_Scan_Station_Result"
+                }
+            ]
+        },
+        {
+            "True": true,
+            "False": false,
+            "None": null,
+            "name": "\"wifiphisher_broker\"",
+            "app_name": "wifiphisher_broker",
+            "cluster_app_name": "cluster_wifiphisher_broker",
+            "models": [
+                {
+                    "app_name": "wifiphisher_broker_models",
+                    "name": "Device_Instance",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "BigAutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "module_session_captured",
+                            "label": "module_session_captured",
+                            "type": "ForeignKey (id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "first_seen",
+                            "label": "first_seen",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "ip",
+                            "label": "ip",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "mac_addr",
+                            "label": "mac_addr",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "private_ip",
+                            "label": "private_ip",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "type",
+                            "label": "type",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "wp3_basic_models",
+                            "target": "Module_Session",
+                            "type": "ForeignKey",
+                            "name": "module_session_captured",
+                            "label": "module_session_captured (device_instance)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Device_Instance"
+                },
+                {
+                    "app_name": "wifiphisher_broker_models",
+                    "name": "Credential_Result",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "BigAutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "device",
+                            "label": "device",
+                            "type": "ForeignKey (id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "module_session_captured",
+                            "label": "module_session_captured",
+                            "type": "ForeignKey (id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "capture_time",
+                            "label": "capture_time",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "ip",
+                            "label": "ip",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "password",
+                            "label": "password",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "type",
+                            "label": "type",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "username",
+                            "label": "username",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "wp3_basic_models",
+                            "target": "Module_Session",
+                            "type": "ForeignKey",
+                            "name": "module_session_captured",
+                            "label": "module_session_captured (credential_result)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        },
+                        {
+                            "target_app": "wifiphisher_broker_models",
+                            "target": "Device_Instance",
+                            "type": "ForeignKey",
+                            "name": "device",
+                            "label": "device (credential_result)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Credential_Result"
+                },
+                {
+                    "app_name": "wifiphisher_broker_models",
+                    "name": "Wifiphisher_Captive_Portal_Session",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "module_session_ptr",
+                            "label": "module_session_ptr",
+                            "type": "OneToOneField (id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "aux_data",
+                            "label": "aux_data",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "cred_file_path",
+                            "label": "cred_file_path",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "cred_type",
+                            "label": "cred_type",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "essid",
+                            "label": "essid",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "interface",
+                            "label": "interface",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "log_file_path",
+                            "label": "log_file_path",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "scenario",
+                            "label": "scenario",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "wp3_basic_models",
+                            "target": "Module_Session",
+                            "type": "inheritance",
+                            "name": "inheritance",
+                            "label": "multi-table\\ninheritance",
+                            "arrows": "[arrowhead=empty, arrowtail=none, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Wifiphisher_Captive_Portal_Session"
+                },
+                {
+                    "app_name": "wifiphisher_broker_models",
+                    "name": "Wifiphisher_Credential_Result",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "BigAutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "credential",
+                            "label": "credential",
+                            "type": "ForeignKey (id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "wpisher_session",
+                            "label": "wpisher_session",
+                            "type": "ForeignKey (module_session_ptr)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "wifiphisher_broker_models",
+                            "target": "Wifiphisher_Captive_Portal_Session",
+                            "type": "ForeignKey",
+                            "name": "wpisher_session",
+                            "label": "wpisher_session (wifiphisher_credential_result)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        },
+                        {
+                            "target_app": "wifiphisher_broker_models",
+                            "target": "Credential_Result",
+                            "type": "ForeignKey",
+                            "name": "credential",
+                            "label": "credential (wifiphisher_credential_result)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Wifiphisher_Credential_Result"
+                },
+                {
+                    "app_name": "wifiphisher_broker_models",
+                    "name": "Wifiphisher_Device_Instance",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "BigAutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "device_instance",
+                            "label": "device_instance",
+                            "type": "ForeignKey (id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "wpisher_session",
+                            "label": "wpisher_session",
+                            "type": "ForeignKey (module_session_ptr)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "wifiphisher_broker_models",
+                            "target": "Wifiphisher_Captive_Portal_Session",
+                            "type": "ForeignKey",
+                            "name": "wpisher_session",
+                            "label": "wpisher_session (wifiphisher_device_instance)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        },
+                        {
+                            "target_app": "wifiphisher_broker_models",
+                            "target": "Device_Instance",
+                            "type": "ForeignKey",
+                            "name": "device_instance",
+                            "label": "device_instance (wifiphisher_device_instance)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Wifiphisher_Device_Instance"
+                }
+            ]
+        },
+        {
+            "True": true,
+            "False": false,
+            "None": null,
+            "name": "\"django.contrib.admin\"",
+            "app_name": "django.contrib.admin",
+            "cluster_app_name": "cluster_django_contrib_admin",
+            "models": [
+                {
+                    "app_name": "django_contrib_admin_models",
+                    "name": "LogEntry",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "AutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "content_type",
+                            "label": "content_type",
+                            "type": "ForeignKey (id)",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "user",
+                            "label": "user",
+                            "type": "ForeignKey (id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "action_flag",
+                            "label": "action_flag",
+                            "type": "PositiveSmallIntegerField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "action_time",
+                            "label": "action_time",
+                            "type": "DateTimeField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "change_message",
+                            "label": "change_message",
+                            "type": "TextField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "object_id",
+                            "label": "object_id",
+                            "type": "TextField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "object_repr",
+                            "label": "object_repr",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "django_contrib_auth_models",
+                            "target": "User",
+                            "type": "ForeignKey",
+                            "name": "user",
+                            "label": "user (logentry)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        },
+                        {
+                            "target_app": "django_contrib_contenttypes_models",
+                            "target": "ContentType",
+                            "type": "ForeignKey",
+                            "name": "content_type",
+                            "label": "content_type (logentry)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "LogEntry"
+                }
+            ]
+        },
+        {
+            "True": true,
+            "False": false,
+            "None": null,
+            "name": "\"django.contrib.auth\"",
+            "app_name": "django.contrib.auth",
+            "cluster_app_name": "cluster_django_contrib_auth",
+            "models": [
+                {
+                    "app_name": "django_contrib_auth_models",
+                    "name": "AbstractUser",
+                    "abstracts": [
+                        "AbstractBaseUser",
+                        "PermissionsMixin"
+                    ],
+                    "fields": [
+                        {
+                            "name": "date_joined",
+                            "label": "date_joined",
+                            "type": "DateTimeField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "email",
+                            "label": "email",
+                            "type": "EmailField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "first_name",
+                            "label": "first_name",
+                            "type": "CharField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "is_active",
+                            "label": "is_active",
+                            "type": "BooleanField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "is_staff",
+                            "label": "is_staff",
+                            "type": "BooleanField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "is_superuser",
+                            "label": "is_superuser",
+                            "type": "BooleanField",
+                            "blank": false,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "last_login",
+                            "label": "last_login",
+                            "type": "DateTimeField",
+                            "blank": true,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "last_name",
+                            "label": "last_name",
+                            "type": "CharField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "password",
+                            "label": "password",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "username",
+                            "label": "username",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "django_contrib_auth_base_user",
+                            "target": "AbstractBaseUser",
+                            "type": "inheritance",
+                            "name": "inheritance",
+                            "label": "abstract\\ninheritance",
+                            "arrows": "[arrowhead=empty, arrowtail=none, dir=both]",
+                            "needs_node": true
+                        },
+                        {
+                            "target_app": "django_contrib_auth_models",
+                            "target": "PermissionsMixin",
+                            "type": "inheritance",
+                            "name": "inheritance",
+                            "label": "abstract\\ninheritance",
+                            "arrows": "[arrowhead=empty, arrowtail=none, dir=both]",
+                            "needs_node": true
+                        }
+                    ],
+                    "label": "AbstractUser"
+                },
+                {
+                    "app_name": "django_contrib_auth_models",
+                    "name": "Permission",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "AutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "content_type",
+                            "label": "content_type",
+                            "type": "ForeignKey (id)",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": true,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "codename",
+                            "label": "codename",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "name",
+                            "label": "name",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "django_contrib_contenttypes_models",
+                            "target": "ContentType",
+                            "type": "ForeignKey",
+                            "name": "content_type",
+                            "label": "content_type (permission)",
+                            "arrows": "[arrowhead=none, arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Permission"
+                },
+                {
+                    "app_name": "django_contrib_auth_models",
+                    "name": "Group",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "AutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "name",
+                            "label": "name",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "django_contrib_auth_models",
+                            "target": "Permission",
+                            "type": "ManyToManyField",
+                            "name": "permissions",
+                            "label": "permissions (group)",
+                            "arrows": "[arrowhead=dot arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Group"
+                },
+                {
+                    "app_name": "django_contrib_auth_models",
+                    "name": "User",
+                    "abstracts": [
+                        "AbstractUser"
+                    ],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "AutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "date_joined",
+                            "label": "date_joined",
+                            "type": "DateTimeField",
+                            "blank": false,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "email",
+                            "label": "email",
+                            "type": "EmailField",
+                            "blank": true,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "first_name",
+                            "label": "first_name",
+                            "type": "CharField",
+                            "blank": true,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "is_active",
+                            "label": "is_active",
+                            "type": "BooleanField",
+                            "blank": false,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "is_staff",
+                            "label": "is_staff",
+                            "type": "BooleanField",
+                            "blank": false,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "is_superuser",
+                            "label": "is_superuser",
+                            "type": "BooleanField",
+                            "blank": false,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "last_login",
+                            "label": "last_login",
+                            "type": "DateTimeField",
+                            "blank": true,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "last_name",
+                            "label": "last_name",
+                            "type": "CharField",
+                            "blank": true,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "password",
+                            "label": "password",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "username",
+                            "label": "username",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "django_contrib_auth_models",
+                            "target": "Group",
+                            "type": "ManyToManyField",
+                            "name": "groups",
+                            "label": "groups (user)",
+                            "arrows": "[arrowhead=dot arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        },
+                        {
+                            "target_app": "django_contrib_auth_models",
+                            "target": "Permission",
+                            "type": "ManyToManyField",
+                            "name": "user_permissions",
+                            "label": "user_permissions (user)",
+                            "arrows": "[arrowhead=dot arrowtail=dot, dir=both]",
+                            "needs_node": false
+                        },
+                        {
+                            "target_app": "django_contrib_auth_models",
+                            "target": "AbstractUser",
+                            "type": "inheritance",
+                            "name": "inheritance",
+                            "label": "abstract\\ninheritance",
+                            "arrows": "[arrowhead=empty, arrowtail=none, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "User"
+                }
+            ]
+        },
+        {
+            "True": true,
+            "False": false,
+            "None": null,
+            "name": "\"django.contrib.contenttypes\"",
+            "app_name": "django.contrib.contenttypes",
+            "cluster_app_name": "cluster_django_contrib_contenttypes",
+            "models": [
+                {
+                    "app_name": "django_contrib_contenttypes_models",
+                    "name": "ContentType",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "id",
+                            "label": "id",
+                            "type": "AutoField",
+                            "blank": true,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "app_label",
+                            "label": "app_label",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "model",
+                            "label": "model",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [],
+                    "label": "ContentType"
+                }
+            ]
+        },
+        {
+            "True": true,
+            "False": false,
+            "None": null,
+            "name": "\"django.contrib.sessions\"",
+            "app_name": "django.contrib.sessions",
+            "cluster_app_name": "cluster_django_contrib_sessions",
+            "models": [
+                {
+                    "app_name": "django_contrib_sessions_base_session",
+                    "name": "AbstractBaseSession",
+                    "abstracts": [],
+                    "fields": [
+                        {
+                            "name": "expire_date",
+                            "label": "expire_date",
+                            "type": "DateTimeField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "session_data",
+                            "label": "session_data",
+                            "type": "TextField",
+                            "blank": false,
+                            "abstract": false,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [],
+                    "label": "AbstractBaseSession"
+                },
+                {
+                    "app_name": "django_contrib_sessions_models",
+                    "name": "Session",
+                    "abstracts": [
+                        "AbstractBaseSession"
+                    ],
+                    "fields": [
+                        {
+                            "name": "session_key",
+                            "label": "session_key",
+                            "type": "CharField",
+                            "blank": false,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": true
+                        },
+                        {
+                            "name": "expire_date",
+                            "label": "expire_date",
+                            "type": "DateTimeField",
+                            "blank": false,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        },
+                        {
+                            "name": "session_data",
+                            "label": "session_data",
+                            "type": "TextField",
+                            "blank": false,
+                            "abstract": true,
+                            "relation": false,
+                            "primary_key": false
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "target_app": "django_contrib_sessions_base_session",
+                            "target": "AbstractBaseSession",
+                            "type": "inheritance",
+                            "name": "inheritance",
+                            "label": "abstract\\ninheritance",
+                            "arrows": "[arrowhead=empty, arrowtail=none, dir=both]",
+                            "needs_node": false
+                        }
+                    ],
+                    "label": "Session"
+                }
+            ]
+        }
+    ]
+}
